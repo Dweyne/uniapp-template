@@ -1,16 +1,35 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [ // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
 		}
+        ,{
+            "path" : "pages/authority/authority",
+            "style" : {
+				"navigationBarTitleText": "微信登录"
+			}
+        }
+        ,{
+            "path" : "pages/authority/authorityWX",
+            "style" : {
+				"navigationBarTitleText": "微信授权"
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF",
+		"backgroundColorTop":"#FFFFFF", // iOS APP真机bounce回弹区域默认灰色,建议统一重置为白色
+		"navigationStyle": "custom",  // 自定义头部
+		"disableScroll": true, // 禁止原生页面滚动, 解决Android小程序下拉卡顿的问题
+		"app-plus" : {
+			"bounce" : "none" // 取消APP端iOS回弹,避免与下拉刷新冲突 (可统一配在 'globalStyle')
+		},
+		"mp-alipay":{"allowsBounceVertical":"NO"} // 取消支付宝和钉钉小程序的iOS回弹,避免与下拉刷新冲突 (可统一配在 'globalStyle')
 	}
 }

@@ -64,15 +64,10 @@ Vue.config.productionTip = false
 // 判断是否登录
 Vue.prototype.login_status = function() {
 	if (!uni.getStorageSync("token")) {
-		uni.navigateTo({
-			url: '/pages/authorization/index',
-			success: res => {},
-			fail: res => {
-				console.log(res)
-			}
-		})
+		store.commit('user/checkUserInfo')
 	}
 }
+
 
 App.mpType = 'app'
 const app = new Vue({

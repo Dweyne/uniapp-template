@@ -38,13 +38,13 @@ const mutations = {
 				if (!res.authSetting['scope.userInfo']) {
 					//这里调用授权
 					uni.navigateTo({
-						url: '/pages/user/authorityWX'
+						url: '/pages/authority/authorityWX'
 						
 					})
 				} else {
-					console.log('ss');
+					// console.log('ss');
 					uni.navigateTo({
-						url: '/pages/user/authority',
+						url: '/pages/authority/authority',
 						fail(res) {
 							console.log(res);
 						}
@@ -77,6 +77,7 @@ const mutations = {
 		state.isLogin = false
 		// #ifdef H5
 		window.sessionStorage.removeItem("userInfo");
+		window.sessionStorage.removeItem("token");
 		// #endif
 		// #ifndef MP-WEIXIN
 		uni.removeStorageSync("userInfo");
